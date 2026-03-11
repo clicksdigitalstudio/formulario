@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Briefing de Edição - Click’s Digital Studio</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            padding: 15px;
+            color: #333;
+            margin: 0;
+        }
+
+        .container {
+            background-color: #fff;
+            max-width: 600px;
+            width: 100%;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        h2 { 
+            color: #1e3a8a; 
+            border-bottom: 2px solid #1e3a8a; 
+            padding-bottom: 10px;
+            margin-top: 0;
+            font-size: 1.6rem;
+        }
+        
+        .instrucoes {
+            background-color: #eef2ff;
+            padding: 15px;
+            border-left: 5px solid #1e3a8a;
+            margin-bottom: 25px;
+            font-size: 0.95em;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .campo { 
+            margin-bottom: 30px; 
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
+        }
+        
+        label { 
+            display: block; 
+            font-weight: bold; 
+            margin-bottom: 12px;
+            font-size: 1.1rem;
+            color: #1e3a8a;
+        }
+
+        input[type="text"], textarea, select {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-size: 16px;
+            background-color: #fafafa;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        .estilo-box {
+            background-color: #f8f9ff;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            border: 1px solid #d0d9ff;
+        }
+
+        .estilo-titulo {
+            font-weight: bold;
+            font-size: 1.1rem;
+            color: #1e3a8a;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #b0c4ff;
+            padding-bottom: 5px;
+        }
+
+        .estilo-descricao {
+            margin: 10px 0;
+            padding-left: 10px;
+            border-left: 3px solid #25d366;
+        }
+
+        .estilo-lista {
+            margin: 10px 0 10px 20px;
+        }
+
+        .estilo-lista li {
+            margin-bottom: 5px;
+        }
+
+        .estilo-nao {
+            color: #b91c1c;
+            margin-top: 10px;
+            font-weight: 500;
+        }
+
+        .opcoes-radio { 
+            display: flex; 
+            flex-direction: column; 
+            gap: 15px; 
+            margin-top: 10px;
+        }
+
+        .opcao-radio-card {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .opcao-radio-card:hover {
+            background-color: #f0f0f0;
+            border-color: #1e3a8a;
+        }
+
+        .opcao-radio-card input[type="radio"] {
+            margin-right: 10px;
+            transform: scale(1.2);
+        }
+
+        .politica {
+            font-size: 0.95em;
+            background: #fff8e1;
+            padding: 20px;
+            border: 1px solid #ffe082;
+            border-radius: 8px;
+            margin: 25px 0;
+        }
+
+        .politica p {
+            margin: 10px 0;
+        }
+
+        .checkbox-container { 
+            display: flex; 
+            align-items: center; 
+            gap: 12px; 
+            margin: 25px 0 15px; 
+            font-weight: bold;
+            background-color: #e8f5e9;
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        button {
+            width: 100%;
+            background-color: #25d366;
+            color: white;
+            padding: 18px;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background 0.3s;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        button:hover { background-color: #128c7e; }
+
+        .fallback-msg {
+            display: none;
+            margin-top: 15px;
+            padding: 12px;
+            background-color: #ffebee;
+            border-left: 4px solid #c62828;
+            border-radius: 4px;
+            font-size: 0.95em;
+        }
+
+        .atencao {
+            color: #b91c1c;
+            font-weight: bold;
+            background-color: #ffebee;
+            padding: 10px;
+            border-radius: 6px;
+            margin: 15px 0;
+        }
+
+        hr {
+            border: none;
+            border-top: 2px dashed #1e3a8a;
+            margin: 30px 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>📋 Briefing de Edição</h2>
+    
+    <div class="instrucoes">
+        <p>Para iniciarmos sua edição, preciso que responda às perguntas abaixo <strong>numerando suas respostas</strong>.</p>
+        <p>A edição será realizada exclusivamente com base nas informações enviadas aqui.</p>
+        <p><strong>Caso não haja resposta, a edição seguirá automaticamente o padrão artístico da Click's Digital Studio, não sendo possível solicitar mudança de estilo posteriormente.</strong></p>
+    </div>
+
+    <form id="formEdicao">
+        <!-- 1. Nome -->
+        <div class="campo">
+            <label>1️⃣ Qual seu nome completo?</label>
+            <input type="text" id="nome" placeholder="Ex: Maria Silva" required>
+        </div>
+
+        <!-- 2. Preferência de cor -->
+        <div class="campo">
+            <label>2️⃣ Você prefere fotos:</label>
+            <select id="preferenciaCor" required>
+                <option value="">-- Escolha uma opção --</option>
+                <option value="Apenas coloridas">Apenas coloridas</option>
+                <option value="Algumas em preto e branco">Algumas em preto e branco</option>
+                <option value="Todas em preto e branco">Todas em preto e branco</option>
+            </select>
+        </div>
+
+        <!-- 3. Estilo de edição -->
+        <div class="campo">
+            <label>3️⃣ Escolha seu estilo de edição</label>
+            <div class="atencao">
+                ⚠️ Escolha apenas UM estilo. Não é possível misturar Natural e Editorial no mesmo ensaio.
+            </div>
+            
+            <div class="opcoes-radio">
+                <!-- Natural -->
+                <div class="opcao-radio-card">
+                    <label style="font-weight:bold; color:#1e3a8a; display:flex; align-items:center;">
+                        <input type="radio" name="estilo" value="Natural" required> 🌿 NATURAL – edição leve e realista
+                    </label>
+                    <p>A proposta é manter sua aparência o mais natural possível.</p>
+                    <div class="estilo-descricao">
+                        <strong>✔ Inclui:</strong>
+                        <ul class="estilo-lista">
+                            <li>textura natural da pele</li>
+                            <li>correção de luz e cor (se necessário)</li>
+                            <li>remoção de espinhas temporárias</li>
+                            <li>suavização leve de olheiras</li>
+                            <li>remoção de fios de cabelo soltos</li>
+                        </ul>
+                    </div>
+                    <div class="estilo-nao">
+                        <strong>🚫 NÃO são feitos:</strong>
+                        <ul class="estilo-lista">
+                            <li>afinamento de braços</li>
+                            <li>afinamento de pernas</li>
+                            <li>redução de barriga</li>
+                            <li>redução de papada</li>
+                            <li>alteração de silhueta</li>
+                            <li>retirada de estrias e celulites</li>
+                        </ul>
+                    </div>
+                    <p><em>👉 Ideal para quem quer fotos naturais e autênticas.</em></p>
+                </div>
+
+                <!-- Natural Corrigido Leve -->
+                <div class="opcao-radio-card">
+                    <label style="font-weight:bold; color:#1e3a8a; display:flex; align-items:center;">
+                        <input type="radio" name="estilo" value="Natural Corrigido Leve"> ☀️ NATURAL CORRIGIDO LEVE – edição leve sem filtro e algumas leves correções
+                    </label>
+                    <div class="estilo-descricao">
+                        <strong>✔ Inclui:</strong>
+                        <ul class="estilo-lista">
+                            <li>textura natural da pele (sem filtros)</li>
+                            <li>tirar estrias aparentes se caso for leve e deixando textura natural da pele</li>
+                            <li>correção de luz e cor (se necessário)</li>
+                            <li>remoção de espinhas temporárias</li>
+                            <li>suavização leve de olheiras</li>
+                            <li>remoção de fios de cabelo soltos</li>
+                            <li>leve arredondamento de barriga se necessário</li>
+                            <li>leve afinamento de braço</li>
+                        </ul>
+                    </div>
+                    <div class="estilo-nao">
+                        <strong>🚫 NÃO são feitos:</strong>
+                        <ul class="estilo-lista">
+                            <li>afinamento de pernas</li>
+                            <li>redução de barriga</li>
+                            <li>redução de papada</li>
+                            <li>alteração de silhueta</li>
+                            <li>retirada de celulites</li>
+                        </ul>
+                    </div>
+                    <p><em>👉 Ideal para quem quer fotos naturais com um leve retoque.</em></p>
+                </div>
+
+                <!-- Editorial -->
+                <div class="opcao-radio-card">
+                    <label style="font-weight:bold; color:#1e3a8a; display:flex; align-items:center;">
+                        <input type="radio" name="estilo" value="Editorial"> ✨ EDITORIAL – edição mais produzida (estilo revista)
+                    </label>
+                    <p>Edição mais refinada e sofisticada.</p>
+                    <div class="estilo-descricao">
+                        <strong>✔ Inclui:</strong>
+                        <ul class="estilo-lista">
+                            <li>pele mais uniforme com filtros</li>
+                            <li>tratamento de pele mais detalhado</li>
+                            <li>aparência mais produzida</li>
+                        </ul>
+                        <strong>Também permite ajustes estéticos leves, como:</strong>
+                        <ul class="estilo-lista">
+                            <li>afinamento de braços</li>
+                            <li>afinamento de pernas</li>
+                            <li>suavizar ou arredondar barriga</li>
+                            <li>redução de papada</li>
+                            <li>pequenos ajustes de contorno corporal</li>
+                        </ul>
+                    </div>
+                    <p><em>⚠️ Os ajustes são feitos de forma natural, sem deformar o corpo.</em></p>
+                    <p><em>👉 Ideal para quem prefere fotos mais glamourosas.</em></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. O que remover (com texto atualizado) -->
+        <div class="campo">
+            <label>4️⃣ Existe algo específico que você deseja muito remover ou ajustar? (iremos avaliar a possibilidade)</label>
+            <textarea id="remover" rows="3" placeholder="Ex: olheiras, espinhas, fios de cabelo, fundo, silhueta..."></textarea>
+        </div>
+
+        <!-- 5. O que NÃO remover -->
+        <div class="campo">
+            <label>5️⃣ Existe alguma característica que NÃO deve ser removida?</label>
+            <textarea id="manter" rows="3" placeholder="Ex: cicatriz, pinta, marca de nascença, estrias..."></textarea>
+        </div>
+
+        <!-- 6. Proporção -->
+        <div class="campo">
+            <label>6️⃣ Qual proporção você prefere?</label>
+            <select id="proporcao" required>
+                <option value="">-- Escolha uma opção --</option>
+                <option value="Original">Original</option>
+                <option value="1:1 (Quadrado – Instagram)">1:1 (Quadrado – Instagram)</option>
+                <option value="4:5 (Vertical – Instagram)">4:5 (Vertical – Instagram)</option>
+            </select>
+        </div>
+
+        <!-- 7. Informações extras -->
+        <div class="campo">
+            <label>7️⃣ Existe mais alguma informação importante para que sua edição fique perfeita? (será analisado e feito se possível)</label>
+            <textarea id="extra" rows="3" placeholder="Ex: cores preferidas, estilo de fundo, alguma referência..."></textarea>
+        </div>
+
+        <hr>
+
+        <!-- POLÍTICA DE EDIÇÃO -->
+        <div class="politica">
+            <h3 style="color:#1e3a8a; margin-top:0;">📌 POLÍTICA DE EDIÇÃO (IMPORTANTE)</h3>
+            <p>✔ O tratamento inclui correção de cor, luz, contraste, enquadramento e retoque conforme o estilo escolhido.</p>
+            <p>✔ Pedidos não informados neste questionário poderão gerar taxa adicional de edição.</p>
+            <p>✔ Mudança de estilo após a edição não é possível, pois cada estilo exige um processo diferente de tratamento.</p>
+        </div>
+
+        <!-- Checkbox de concordância -->
+        <div class="checkbox-container">
+            <input type="checkbox" id="concordo" required style="width:20px; height:20px;">
+            <label for="concordo" style="font-weight:bold; margin:0;">"Estou ciente e de acordo."</label>
+        </div>
+
+        <button type="button" id="btnEnviar">🚀 Enviar para o WhatsApp</button>
+    </form>
+
+    <div id="fallback" class="fallback-msg">
+        Não foi possível abrir o WhatsApp automaticamente. 
+        <a href="#" id="linkFallback" target="_blank">Clique aqui</a> se o app não abrir.
+    </div>
+</div>
+
+<script>
+    function enviarWhatsApp() {
+        // Coletar valores
+        const nome = document.getElementById('nome').value.trim();
+        const prefCor = document.getElementById('preferenciaCor').value;
+        
+        // Pegar estilo selecionado
+        const estiloRadios = document.getElementsByName('estilo');
+        let estiloSelecionado = '';
+        for (let radio of estiloRadios) {
+            if (radio.checked) {
+                estiloSelecionado = radio.value;
+                break;
+            }
+        }
+        
+        const remover = document.getElementById('remover').value.trim() || "Nada específico";
+        const manter = document.getElementById('manter').value.trim() || "Nada específico";
+        const proporcao = document.getElementById('proporcao').value;
+        const extra = document.getElementById('extra').value.trim() || "Nenhuma informação extra";
+        const concordo = document.getElementById('concordo').checked;
+
+        // Validações
+        if (!nome) {
+            alert("Por favor, preencha seu nome.");
+            return;
+        }
+        if (!prefCor) {
+            alert("Por favor, escolha sua preferência de fotos.");
+            return;
+        }
+        if (!estiloSelecionado) {
+            alert("Por favor, escolha um estilo de edição.");
+            return;
+        }
+        if (!proporcao) {
+            alert("Por favor, escolha a proporção das fotos.");
+            return;
+        }
+        if (!concordo) {
+            alert("Você precisa estar ciente e de acordo com a política de edição.");
+            return;
+        }
+
+        // Número do WhatsApp
+        const numeroTelefone = "5527998152011";
+
+        // Montar mensagem numerada
+        let mensagem = `*Formulário de Edição - Click’s Digital Studio*\n\n`;
+        mensagem += `1 – ${nome}\n`;
+        mensagem += `2 – ${prefCor}\n`;
+        mensagem += `3 – ${estiloSelecionado}\n`;
+        mensagem += `4 – ${remover}\n`;
+        mensagem += `5 – ${manter}\n`;
+        mensagem += `6 – ${proporcao}\n`;
+        mensagem += `7 – ${extra}\n\n`;
+        mensagem += `*Estou ciente e de acordo.*`;
+
+        // Codificar para URL
+        const mensagemCodificada = encodeURIComponent(mensagem);
+
+        // Link do WhatsApp (formato wa.me)
+        const url = `https://wa.me/${numeroTelefone}?text=${mensagemCodificada}`;
+
+        // Tentar abrir o link
+        window.location.href = url;
+
+        // Fallback: se após 3 segundos não redirecionou, mostra link alternativo
+        setTimeout(() => {
+            if (document.hasFocus()) {
+                const fallbackDiv = document.getElementById('fallback');
+                const fallbackLink = document.getElementById('linkFallback');
+                fallbackLink.href = url;
+                fallbackDiv.style.display = 'block';
+            }
+        }, 3000);
+    }
+
+    // Associar evento ao botão
+    document.getElementById('btnEnviar').addEventListener('click', enviarWhatsApp);
+</script>
+
+</body>
+</html>
